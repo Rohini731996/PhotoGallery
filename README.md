@@ -36,6 +36,18 @@ $ yarn web
 ```
 
 
+- images below represent from initial state and desired solution
+
+<p float="left">
+  <img src="./screenshots/iphone1.png" width="220" title="hover text">
+  <img src="./screenshots/iphone2.png" width="220" title="hover text">
+  <img src="./screenshots/android1.png" width="220" title="hover text">
+  <img src="./screenshots/android2.png" width="220" title="hover text">
+  <img src="./screenshots/web1.png" width="220" title="hover text">
+  <img src="./screenshots/web2.png" width="220" title="hover text">
+</p>
+
+
 
 
 
