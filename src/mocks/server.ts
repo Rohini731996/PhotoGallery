@@ -36,11 +36,10 @@ export function makeServer({ environment = "development" } = {}) {
       this.get("/api/users", (schema, request) => {
         return schema.users.all();
       });
-      this.post("/api/users", ({ users }, request) => {
+      this.post("/api/users", (schema, request) => {
         let attrs = JSON.parse(request.requestBody)
         let _id = parseInt(attrs.id)
-        users.find(_id).update(attrs);
-        return users.all();
+        return schema.users.find(_id).update(attrs)
       })
 
     },

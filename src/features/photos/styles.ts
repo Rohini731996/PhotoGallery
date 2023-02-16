@@ -75,7 +75,19 @@ export const Pressable = styled.Pressable`
   background-color: hsl(0, 0%, 95%);
 `
 
+export const ErrorText = styled.Text`
+    font-size: 24px;
+    font-weight: bold;
+    align-self: center;
+    color: #FF5C5C
+`;
 
+export const LoadingText = styled.Text`
+    font-size: 24px;
+    font-weight: bold;
+    align-self: center;
+    color: #46CF90
+`;
 
 export const ThumbnailImageContainer = styled.View`
 margin: 8px;
