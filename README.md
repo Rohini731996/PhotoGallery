@@ -7,7 +7,10 @@ The aim of this exercise is to create a response photo gallery application using
 - hooks
 - styled-components
 - typescript
-- See [Getting Started](https://reactnative.dev/docs/environment-setup) to install requirement tools.
+- mocked images from [randam user generator](https://randomuser.me/)
+
+
+# See [Getting Started](https://reactnative.dev/docs/environment-setup) to install requirement tools.
 
 
 
