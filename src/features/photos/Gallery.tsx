@@ -1,0 +1,102 @@
+import React, { useState } from 'react';
+import PhotoItem from './Photo';
+import { ButtonText, CommentInput, Comments, CommentsContainer, Container, FlatListContainer, FullSizePhoto, ModalContainer, PhotoModal, Button, Styles } from './styles';
+import { AntDesign } from '@expo/vector-icons';
+import { useFetchUserPhotosQuery, useUpdateCommentMutation } from '../../redux/photoSlice';
+
+
+
+const Gallery: React.FC = () => {
+    const [selectedPhoto, setSelectedPhoto] = useState(null);
+    const [comment, setComment] = useState('');
+    const [hideInput, setHideInputBox] = useState(false);
+
+    const { data, error, isLoadings } = useFetchUserPhotosQuery("123");
+    const photos = data?.users || []
+
+    const [updateComment, { isLoading }] = useUpdateCommentMutation()
+
+    const handleThumbnailPress = (photo: React.SetStateAction<null>) => {
+        setSelectedPhoto(photo);
+        setComment(photo?.comment)
+    };
+    const handleModalClose = () => {
+        setSelectedPhoto(null);
+    };
+
+    const handleCommentEdit = () => {
+        setHideInputBox(false);
+    };
+
+    const handleCommentDelete = () => {
+        setComment('');
+        setHideInputBox(false);
+        let payload = { id: selectedPhoto?.id, comment: '' }
+        updateComment(payload)
+    };
+
+    const handleCommentChange = (text: string) => {
+        setComment(text);
+    };
+    const handleSaveComment = () => {
+        setHideInputBox(true);
+        let payload = { id: selectedPhoto?.id, comment: comment }
+        updateComment(payload)
+        setSelectedPhoto(null);
+    };
+
+    return (
+        <Container>
+
+            <FlatListContainer
+                data={photos}
+                numColumns={3}
+                removeClippedSubviews={true}
+                onEndReachedThreshold={0.9}
+                keyExtractor={(item, index) => `item-${item}-${index}`}
+                renderItem={({ item }) => <PhotoItem photo={item} onClick={() => handleThumbnailPress(item)} />}
+            />
+            {selectedPhoto && (
+                <PhotoModal>
+                    <ModalContainer>
+                        <AntDesign name="close" size={40}
+                            color="white"
+                            onPress={handleModalClose}
+                        />
+                        <FullSizePhoto source={{ uri: selectedPhoto.avatarUrl }} />
+
+                        <CommentsContainer>
+                            {!selectedPhoto?.comment || !hideInput ? <>
+                                <CommentInput
+                                    value={comment}
+                                    maxLength={50}
+                                    onChangeText={handleCommentChange}
+                                    placeholder="Add a comment"
+                                />
+                                <Button onPress={handleSaveComment} >
+                                    <ButtonText>Save</ButtonText>
+                                </Button>
+                            </>
+                                :
+                                <Comments>{selectedPhoto?.comment}</Comments>
+                            }
+                            <Button onPress={handleCommentEdit}>
+                                <ButtonText>Edit</ButtonText>
+                            </Button>
+                            <Button onPress={handleCommentDelete} >
+                                <ButtonText>Delete</ButtonText>
+                            </Button>
+                        </CommentsContainer>
+                    </ModalContainer>
+                </PhotoModal>
+
+            )}
+        </Container>
+    );
+};
+
+export default Gallery;
+
+
+
+
