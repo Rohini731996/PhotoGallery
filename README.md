@@ -36,15 +36,26 @@ $ yarn web
 ```
 
 
-- images below represent from initial state and desired solution
+# Screenshots of the app on various platform
+- ios
 
 <p float="left">
-  <img src="./screenshots/iphone1.png" width="220" title="hover text">
-  <img src="./screenshots/iphone2.png" width="220" title="hover text">
-  <img src="./screenshots/android1.png" width="220" title="hover text">
-  <img src="./screenshots/android2.png" width="220" title="hover text">
-  <img src="./screenshots/web1.png" width="220" title="hover text">
-  <img src="./screenshots/web2.png" width="220" title="hover text">
+  <img src="./screenshots/iphone1.png" width="200" title="hover text">
+  <img src="./screenshots/iphone2.png" width="200" title="hover text">
+</p>
+
+- android
+
+<p float="left"> 
+  <img src="./screenshots/android1.png" width="200" title="hover text">
+  <img src="./screenshots/android2.png" width="200" title="hover text">
+ </p>
+ 
+- web
+
+ <p float="left">
+  <img src="./screenshots/web1.png" width="300" title="hover text">
+  <img src="./screenshots/web2.png" width="300" title="hover text">
 </p>
 
 
