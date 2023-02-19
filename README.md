@@ -2,7 +2,7 @@
 
 
 # Photo Gallery App
-The aim of this exercise is to create a response photo gallery application using React Native and following toolset.
+The aim of this exercise is to create a responsive photo gallery application using React Native and following toolset.
 - redux-toolkit + react-query(used RTK Query)
 - hooks
 - styled-components
